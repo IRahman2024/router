@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const User = ({user}) => {
     const {id, name, email, phone} = user;
-    console.log(user);
+
+    const navigate = useNavigate();
+
+    const showUser = () =>{
+        navigate(`/user/${id}`);
+    }    
+
     const userStyle = {
         border: '2px solid yellow',
         borderRadius: '10px',
@@ -17,6 +23,8 @@ const User = ({user}) => {
             <p>{phone}</p>
             {/* etar mane id dynamic vabe id onujayi link banay */}
             <Link to={`/user/${id}`}>Show details</Link>
+            <br />
+            <button onClick={showUser}>show details</button>
         </div>
     );
 };

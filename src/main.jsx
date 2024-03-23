@@ -34,6 +34,7 @@ const router = createBrowserRouter([
         {
           //ei path er mane : er por ekta number thakbe jeta dynamically change hbe
           path: '/user/:userId',
+          //send data to child component by id
           loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
           element: <UserDetails></UserDetails>
         },
